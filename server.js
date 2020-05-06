@@ -1,21 +1,19 @@
-const http = require('http');
-const path = require('path');
 const express = require('express');
-const members = require('./api/Members');
+const path = require('path');
 
-app = express();
+// App instance initialization
+const app = express();
+
+// Static Page
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Body Parser Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended : true }));
 
-// Static Page
-app.use(express.static(path.join(__dirname, 'public')));
+// App Routes
+app.use('/api/members', require('./api/Routes'));
 
-// Routes
-app.get('/api/members', (req, res) => {
-    res.json(members);
-});
-
+// Server Port Configuration
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log( 'Running Node.js server on http://localhost:' + PORT  ));
