@@ -20,7 +20,7 @@
   "homepage": "https://github.com/kersonveloso/node-api#readme",
   "dependencies": {
     "eslint": "^6.8.0",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "lodash": "^4.17.15",
     "nodemon": "^2.0.3"
   }
